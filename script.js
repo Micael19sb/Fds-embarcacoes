@@ -26,6 +26,23 @@ function closeMenu() {
   document.body.style.overflow = '';
 }
 
+function abrirModal(id) {
+  document.getElementById('modal-' + id).classList.add('modal-aberto');
+  document.body.style.overflow = 'hidden';
+}
+
+function fecharModal(id) {
+  document.getElementById('modal-' + id) .classList.remove('modal-aberto');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('click', (e) =>{
+  if (e.target.classList.contains('modal-galeria')) {
+      e.target.classList.remove('modal-aberto');
+      document.body.style.overflow = '';
+      
+    }});
+
 menuToggle.addEventListener('click', () => {
   if (nav.classList.contains('nav-open')) closeMenu();
   else openMenu();
