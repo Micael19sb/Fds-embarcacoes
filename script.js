@@ -76,3 +76,20 @@ if (desktopQuery.addEventListener) {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && nav.classList.contains('nav-open')) closeMenu();
 });
+
+// Carrossel
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+let slideAtual = 0;
+
+function irParaSlide(n) {
+  slides[slideAtual].classList.remove('active');
+  dots[slideAtual].classList.remove('active');
+  slideAtual = n;
+  slides[slideAtual].classList.add('active');
+  dots[slideAtual].classList.add('active');
+}
+
+setInterval(() => {
+  irParaSlide((slideAtual + 1) % slides.length);
+}, 4000);
